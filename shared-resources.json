@@ -21,6 +21,10 @@
       }
     }
   },
+  "variables": {
+    "vmSize": "[concat('Standard_', parameters('storageSettings').vmSeries, '1')]",
+    "securityGroupName": "MongoVmSG"
+  },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
@@ -95,7 +99,10 @@
           {
             "name": "[parameters('networkSettings').subnetName]",
             "properties": {
-              "addressPrefix": "[parameters('networkSettings').subnetPrefix]"
+              "addressPrefix": "[parameters('networkSettings').subnetPrefix]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('securityGroupName'))]"
+              }
             }
           }
         ]
