@@ -46,7 +46,7 @@
       "apiVersion": "2015-05-01-preview",
       "location": "[parameters('commonSettings').location]",
       "dependsOn":[
-        "[concat('Microsoft.Network/publicIPAddresses/', concat('nicMemberIP', parameters('machineSettings').machineIndex))]",
+        "[concat('Microsoft.Network/publicIPAddresses/', [concat('nicMemberIP', parameters('machineSettings').machineIndex)])]",
         "[concat('Microsoft.Resources/deployments/', 'shared-resources')]"
       ],
       "properties": {
@@ -57,7 +57,7 @@
               "privateIPAllocationMethod": "Static",
               "privateIPAddress": "[concat(parameters('networkSettings').machineIpPrefix, parameters('machineSettings').machineIndex)]",
               "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat('nicMemberIP', parameters('machineSettings').machineIndex))])]"
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses',[concat('nicMemberIP', parameters('machineSettings').machineIndex)])])]"
               },
               "subnet": {
                 "id": "[parameters('networkSettings').subnetRef]"
