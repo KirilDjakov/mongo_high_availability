@@ -177,7 +177,7 @@ install_mongodb()
 	log "Downloading MongoDB package $PACKAGE_NAME from $PACKAGE_URL"
 
 	# Configure mongodb.list file with the correct location
-	apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+	apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 	#echo "deb ${PACKAGE_URL} "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 
 	echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
@@ -192,7 +192,8 @@ install_mongodb()
 	
 	#Install Mongo DB
 	log "Installing MongoDB package $PACKAGE_NAME"
-	apt-get -y install $PACKAGE_NAME
+	#apt-get -y install $PACKAGE_NAME
+	apt-get install -y mongodb-org=3.2.1 mongodb-org-server=3.2.1 mongodb-org-shell=3.2.1 mongodb-org-mongos=3.2.1 mongodb-org-tools=3.2.1
 	
 	# Stop Mongod as it may be auto-started during the above step (which is not desirable)
 	stop_mongodb
