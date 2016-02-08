@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Deploy a highly available MongoDB installation on Ubuntu and CentOS virtual machines
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fmongodb-high-availability%2Fazuredeploy.json" target="_blank">
@@ -46,3 +47,6 @@ In the above deployment sequence, steps #1 and #2 will have to complete first be
 - SSH key is not yet implemented and the template currently takes a password for the admin user
 - MongoDB version 3.0.0 and above is recommended in order to take advantage of high-scale replica sets offered by this template
 - The current version of the MongoDB template is shipped with Ubuntu support only (adding support for CentOS is just a matter of creating an additional installation .sh script)
+=======
+# mongo_high_availability
+>>>>>>> 32a8c8944698a6e3aef3d9fb77a5bb316cd2a6b2
